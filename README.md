@@ -15,6 +15,21 @@
 
 <p align="center"> Bootcamp Java da Alura - Projeto 02 - Biblioteca </p>
 
+  
+Tabela de Conteúdos
+=================
+  <!--ts-->
+  * [Projeto do módulo 2 do bootcamp java da Alura 2021](#projeto-do-módulo-2-do-bootcamp-java-da-alura-2021)
+* [Demonstração do funcionamento](#demonstração-do-funcionamento)
+  * [Requisição para cadastrar autor em formato JSON](#requisição-para-cadastrar-autor-em-formato-json)
+  * [Requisição para listar autor em formato JSON](#requisição-para-listar-autor-em-formato-json)
+  * [Requisição para cadastrar livro em formato JSON](#requisição-para-cadastrar-livro-em-formato-json)
+  * [Requisição para listar livro em formato JSON](#requisição-para-listar-livro-em-formato-json)
+- [Tecnologias](#tecnologias)
+- [Contato](#contato)
+  <!--te-->
+
+  
 ## Projeto do módulo 2 do bootcamp java da Alura 2021
 
 Trata-se de uma aplicação web em Java para gestão de uma livraria online.
@@ -28,6 +43,30 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 * Título deve ser obrigatório e ter no mínimo 10 caracteres;
 * Data de lançamento deve ser uma data menor ou igual a data atual;
 * O número de páginas deve ser maior ou igual a 100.
+  
+## Demonstração do funcionamento
+  
+  ### Requisição para cadastrar autor em formato JSON
+
+  ![](img/autoresPost.jpg)
+  
+  ### Requisição para listar autor em formato JSON
+
+  ![](img/autoresGet.jpg)
+  
+  Para simular o formulário elaborado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01), o sistema cadastra o autor com todos os atributos, mas não lista o atributo miniCurriculo. Isso é feito por meio da criação de classes DTO.
+  
+  ---
+  
+  ### Requisição para cadastrar livro em formato JSON
+  
+  ![](img/livrosPost.jpg)
+  
+  ### Requisição para listar livro em formato JSON
+  
+  ![](img/livrosGet.jpg)
+  
+  Aqui, novamente, cadastra-se todos os atributos no sistema, mas na hora de listar o atributo miniCurriculo da classe Autor fica oculto para simular o projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01).
 
 ## Tecnologias 
 
@@ -41,7 +80,7 @@ Para a construção da aplicação java web foram utilizados:
 * Bean Validation
 * DTO pattern
 
-Para testar as funcionalidades da API pode ser utilizada a ferramenta gratuita [Postman](https://www.postman.com/downloads/).
+Para testar as funcionalidades da API pode ser utilizada a ferramenta gratuita [Postman](https://www.postman.com/downloads/), conforme demonstrado na seção anterior.
 
 
 ## Contato
