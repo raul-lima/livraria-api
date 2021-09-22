@@ -15,7 +15,7 @@
 
 <p align="center"> Bootcamp Java da Alura - Projeto 02 - Biblioteca </p>
 
-## Projeto do módulo 2 do bootcamp java da Alura
+## Projeto do módulo 2 do bootcamp java da Alura 2021
 
 Trata-se de uma aplicação web em Java para gestão de uma livraria online.
 A primeira parte do projeto (módulo 1) pode ser consultada neste [repositório](https://github.com/raul-lima/bootcamp-java-projeto01).
