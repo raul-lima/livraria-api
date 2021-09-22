@@ -33,6 +33,7 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 
 Para a construção da aplicação java web foram utilizados:
 
+* Java
 * API Rest
 * Spring Boot
 * Lombok
