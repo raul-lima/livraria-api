@@ -39,6 +39,7 @@ Para a construção da aplicação java web foram utilizados:
 * Lombok
 * ModelMapper
 * Bean Validation
+* DTO pattern
 
 Para testar as funcionalidades da API pode ser utilizada a ferramenta gratuita [Postman](https://www.postman.com/downloads/).
 
