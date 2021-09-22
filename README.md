@@ -63,7 +63,7 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
   
   ![](img/livrosGet.jpg)
   
-  Novamente cadastra-se todos os atributos no sistema; mas, na hora de listar, o atributo miniCurriculo da classe Autor fica oculto para simular o projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01).
+  Novamente cadastra-se todos os atributos no sistema; mas, na hora de listar, o atributo miniCurriculo da classe Autor fica oculto para seguir o padrão usado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01).
 
 ## Tecnologias 
 
