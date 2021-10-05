@@ -1,6 +1,7 @@
 package br.com.alura.bootcamp.livraria.dto;
 
 import br.com.alura.bootcamp.livraria.model.Autor;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.*;
 
 import javax.validation.constraints.Min;
@@ -24,5 +25,6 @@ public class LivroFormDto {
     @Min(100)
     private Integer paginas;
 
-    private Autor autor;
+    @JsonAlias("autor_id")
+    private Long autorId;
 }
