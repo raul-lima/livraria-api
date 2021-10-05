@@ -2,6 +2,7 @@ package br.com.alura.bootcamp.livraria.model;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
@@ -9,8 +10,13 @@ import java.time.LocalDate;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "autores")
 public class Autor {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
     private String nome;
     private String email;
     private LocalDate dataNascimento;
