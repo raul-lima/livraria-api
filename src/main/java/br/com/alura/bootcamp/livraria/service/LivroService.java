@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,7 +24,7 @@ public class LivroService {
 
     private ModelMapper modelMapper = new ModelMapper();
 
-    @GetMapping
+
     public List<LivroDto> listar() {
 
         List<Livro> livros = livroRepository.findAll();
@@ -34,10 +35,12 @@ public class LivroService {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping
+    @Transactional
     public void cadastrar(LivroFormDto dto) {
 
         Livro livro = modelMapper.map(dto, Livro.class);
+
+        livro.setId(null);
 
         livroRepository.save(livro);
 

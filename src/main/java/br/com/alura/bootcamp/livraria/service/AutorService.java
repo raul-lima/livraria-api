@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,7 +23,7 @@ public class AutorService {
 
     private ModelMapper modelMapper = new ModelMapper();
 
-    @GetMapping
+
     public List<AutorDto> listar() {
 
         List<Autor> autores = autorRepository.findAll();
@@ -33,7 +34,7 @@ public class AutorService {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping
+    @Transactional
     public void cadastrar(AutorFormDto dto) {
 
         Autor autor = modelMapper.map(dto, Autor.class);
