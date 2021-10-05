@@ -6,6 +6,8 @@ import br.com.alura.bootcamp.livraria.model.Autor;
 import br.com.alura.bootcamp.livraria.repository.AutorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,14 +26,11 @@ public class AutorService {
     private ModelMapper modelMapper = new ModelMapper();
 
 
-    public List<AutorDto> listar() {
+    public Page<AutorDto> listar(Pageable paginacao) {
 
-        List<Autor> autores = autorRepository.findAll();
+        Page<Autor> autores = autorRepository.findAll(paginacao);
 
-        return autores
-                .stream()
-                .map(a -> modelMapper.map(a, AutorDto.class))
-                .collect(Collectors.toList());
+        return autores.map(a -> modelMapper.map(a, AutorDto.class));
     }
 
     @Transactional

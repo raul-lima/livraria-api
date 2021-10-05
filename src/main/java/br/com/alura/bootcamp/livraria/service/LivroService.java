@@ -6,6 +6,8 @@ import br.com.alura.bootcamp.livraria.model.Livro;
 import br.com.alura.bootcamp.livraria.repository.LivroRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,14 +27,12 @@ public class LivroService {
     private ModelMapper modelMapper = new ModelMapper();
 
 
-    public List<LivroDto> listar() {
+    public Page<LivroDto> listar(Pageable paginacao) {
 
-        List<Livro> livros = livroRepository.findAll();
+        Page<Livro> livros = livroRepository.findAll(paginacao);
 
         return livros
-                .stream()
-                .map(l -> modelMapper.map(l, LivroDto.class))
-                .collect(Collectors.toList());
+                .map(l -> modelMapper.map(l, LivroDto.class));
     }
 
     @Transactional

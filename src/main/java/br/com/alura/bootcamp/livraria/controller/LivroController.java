@@ -4,6 +4,9 @@ import br.com.alura.bootcamp.livraria.dto.LivroDto;
 import br.com.alura.bootcamp.livraria.dto.LivroFormDto;
 import br.com.alura.bootcamp.livraria.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,9 +21,9 @@ public class LivroController {
     private LivroService service;
 
     @GetMapping
-    public List<LivroDto> listar() {
+    public Page<LivroDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
 
-        return service.listar();
+        return service.listar(paginacao);
     }
 
     @PostMapping
