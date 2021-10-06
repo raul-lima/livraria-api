@@ -12,27 +12,28 @@
 
 <p align="center"> Bootcamp Java da Alura - Projeto 02 - Biblioteca </p>
 
-  
+
 Tabela de Conteúdos
 =================
   <!--ts-->
-  * [Projeto do módulo 2 do bootcamp java da Alura 2021](#projeto-do-módulo-2-do-bootcamp-java-da-alura-2021)
+
+* [Projeto do módulo 2 do bootcamp java da Alura 2021](#projeto-do-módulo-2-do-bootcamp-java-da-alura-2021)
 * [Demonstração do funcionamento](#demonstração-do-funcionamento)
-  * [Requisição para cadastrar autor em formato JSON](#requisição-para-cadastrar-autor-em-formato-json)
-  * [Requisição para listar autor em formato JSON](#requisição-para-listar-autor-em-formato-json)
-  * [Requisição para cadastrar livro em formato JSON](#requisição-para-cadastrar-livro-em-formato-json)
-  * [Requisição para listar livro em formato JSON](#requisição-para-listar-livro-em-formato-json)
+    * [Requisição para cadastrar autor em formato JSON](#requisição-para-cadastrar-autor-em-formato-json)
+    * [Requisição para listar autor em formato JSON](#requisição-para-listar-autor-em-formato-json)
+    * [Requisição para cadastrar livro em formato JSON](#requisição-para-cadastrar-livro-em-formato-json)
+    * [Requisição para listar livro em formato JSON](#requisição-para-listar-livro-em-formato-json)
+
 - [Tecnologias](#tecnologias)
 - [Contato](#contato)
   <!--te-->
 
-  
 ## Projeto do módulo 2 do bootcamp java da Alura 2021
 
-Trata-se de uma aplicação web em Java para gestão de uma livraria online.
-A primeira parte do projeto (módulo 1) pode ser consultada neste [repositório](https://github.com/raul-lima/bootcamp-java-projeto01).
-A aplicação permite o cadastro e a listagem de autores e livros no modelo
-de API, de modo que as informações são consumidas e devolvidas no formato JSON.
+Trata-se de uma aplicação web em Java para gestão de uma livraria online. A primeira parte do projeto (módulo 1) pode
+ser consultada neste [repositório](https://github.com/raul-lima/bootcamp-java-projeto01). A aplicação permite o cadastro
+e a listagem de autores e livros no modelo de API, de modo que as informações são consumidas e devolvidas no formato
+JSON.
 <br>
 <br>
 A funcionalidade de cadastro de livros realiza as seguintes validações:
@@ -40,32 +41,35 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 * Título deve ser obrigatório e ter no mínimo 10 caracteres;
 * Data de lançamento deve ser uma data menor ou igual a data atual;
 * O número de páginas deve ser maior ou igual a 100.
-  
+
 ## Demonstração do funcionamento
-  
-  ### Requisição para cadastrar autor em formato JSON
 
-  ![](img/autoresPost.jpg)
-  
-  ### Requisição para listar autor em formato JSON
+### Requisição para cadastrar autor em formato JSON
 
-  ![](img/autoresGet.jpg)
-  
-  Para simular o formulário elaborado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01), o sistema cadastra o autor com todos os atributos, mas não lista o atributo miniCurriculo. Isso é feito por meio da criação de classes DTO.
-  
-  ---
-  
-  ### Requisição para cadastrar livro em formato JSON
-  
-  ![](img/livrosPost.jpg)
-  
-  ### Requisição para listar livro em formato JSON
-  
-  ![](img/livrosGet.jpg)
-  
-  Novamente cadastra-se todos os atributos no sistema; mas, na hora de listar, o atributo miniCurriculo da classe Autor fica oculto para seguir o padrão usado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01).
+![](img/autoresPost.jpg)
 
-## Tecnologias 
+### Requisição para listar autor em formato JSON
+
+![](img/autoresGet.jpg)
+
+Para simular o formulário elaborado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01), o
+sistema cadastra o autor com todos os atributos, mas não lista o atributo miniCurriculo. Isso é feito por meio da
+criação de classes DTO.
+  
+---
+
+### Requisição para cadastrar livro em formato JSON
+
+![](img/livrosPost.jpg)
+
+### Requisição para listar livro em formato JSON
+
+![](img/livrosGet.jpg)
+
+Novamente cadastra-se todos os atributos no sistema; mas, na hora de listar, o atributo miniCurriculo da classe Autor
+fica oculto para seguir o padrão usado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01).
+
+## Tecnologias
 
 Para a construção da aplicação java web foram utilizados:
 
@@ -77,8 +81,8 @@ Para a construção da aplicação java web foram utilizados:
 * Bean Validation
 * DTO pattern
 
-Para testar as funcionalidades da API pode ser utilizada a ferramenta gratuita [Postman](https://www.postman.com/downloads/), conforme demonstrado na seção anterior.
-
+Para testar as funcionalidades da API pode ser utilizada a ferramenta
+gratuita [Postman](https://www.postman.com/downloads/), conforme demonstrado na seção anterior.
 
 ## Contato
 
@@ -87,5 +91,5 @@ Para testar as funcionalidades da API pode ser utilizada a ferramenta gratuita [
 <br />
 <br />
 
-[![Linkedin Badge](https://img.shields.io/badge/-Raul%20Lima-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/raul-lima-adv/)](https://www.linkedin.com/in/raultlima/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Raul%20Lima-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/raul-lima-adv/)](https://www.linkedin.com/in/raultlima/)
 [![Gmail Badge](https://img.shields.io/badge/-raultorres.lima@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:raultorres.lima@gmail.com)](mailto:raultorres.lima@gmail.com)

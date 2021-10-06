@@ -1,6 +1,5 @@
 package br.com.alura.bootcamp.livraria.dto;
 
-import br.com.alura.bootcamp.livraria.model.Autor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

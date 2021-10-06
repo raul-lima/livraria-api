@@ -17,7 +17,7 @@ public class RelatorioController {
     private RelatorioService service;
 
     @GetMapping("/livraria")
-    public List<LivrosPorAutorDto> relatorioLivrosPorAutor(){
+    public List<LivrosPorAutorDto> relatorioLivrosPorAutor() {
 
         return service.relatorioLivrosPorAutor();
     }
