@@ -46,9 +46,9 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
   
 ## Novas funcionalidades
   
-  * A camada de persistência foi implementada em um banco de dados local MySQL com Spring Data JPA.
-  * Controle de evolução do schema do banco de dados da API utilizando o Flyway como ferramenta de migration.
-  * As funcionalidades de listagem de autores e de livros agora possuem o recurso de paginação.
+  * A camada de persistência foi implementada em um banco de dados local MySQL com Spring Data JPA;
+  * Controle de evolução do schema do banco de dados da API utilizando o Flyway como ferramenta de migration;
+  * As funcionalidades de listagem de autores e de livros agora possuem o recurso de paginação;
   * A aplicação agora permite a devolução de um relatório em formato JSON que exibe, com base no banco de dados local, uma lista com os autores, a quantidade de livros de cada autor e o percentual de cada autor na composição do acervo bibliográfico.
 
 ## Demonstração do funcionamento
