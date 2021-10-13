@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class LivroDto {
 
+    private Long id;
     private String titulo;
     private LocalDate dataLancamento;
     private Integer paginas;
