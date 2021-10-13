@@ -2,36 +2,38 @@
   <img src="img/logoBootcampJava.jpg">
 
 
-![GitHub top language](https://img.shields.io/github/languages/top/raul-lima/bootcamp-java-projeto02)<space><space>
-![Lines of Code](https://img.shields.io/tokei/lines/github/raul-lima/bootcamp-java-projeto02)<space><space>
-![GitHub repo size](https://img.shields.io/github/repo-size/raul-lima/bootcamp-java-projeto02)<space><space>
+![GitHub top language](https://img.shields.io/github/languages/top/raul-lima/bootcamp-java-projeto03)<space><space>
+![Lines of Code](https://img.shields.io/tokei/lines/github/raul-lima/bootcamp-java-projeto03)<space><space>
+![GitHub repo size](https://img.shields.io/github/repo-size/raul-lima/bootcamp-java-projeto03)<space><space>
 ![Feito por](https://img.shields.io/badge/feito%20por-Raul%20Lima-blueviolet)
 
  </div align="center">
 
 
-<p align="center"> Bootcamp Java da Alura - Projeto 02 - Biblioteca </p>
+<p align="center"> Bootcamp Java da Alura - Projeto 03 - Biblioteca API</p>
 
 
 Tabela de Conteúdos
 =================
   <!--ts-->
 
-* [Projeto do módulo 2 do bootcamp java da Alura 2021](#projeto-do-módulo-2-do-bootcamp-java-da-alura-2021)
+* [Projeto do módulo 3 do bootcamp java da Alura 2021](#projeto-do-módulo-3-do-bootcamp-java-da-alura-2021)
+* [Novas funcionalidades](#novas-funcionalidades)
 * [Demonstração do funcionamento](#demonstração-do-funcionamento)
     * [Requisição para cadastrar autor em formato JSON](#requisição-para-cadastrar-autor-em-formato-json)
     * [Requisição para listar autor em formato JSON](#requisição-para-listar-autor-em-formato-json)
     * [Requisição para cadastrar livro em formato JSON](#requisição-para-cadastrar-livro-em-formato-json)
     * [Requisição para listar livro em formato JSON](#requisição-para-listar-livro-em-formato-json)
+    * [Relatório que devolve a quantidade de livros por autor e a porcentagem de cada autor na composição do acervo bibliográfico](#relatório-que-devolve-a-quantidade-de-livros-por-autor-e-a-porcentagem-de-cada-autor-na-composição-do-acervo-bibliográfico)
 
 - [Tecnologias](#tecnologias)
 - [Contato](#contato)
   <!--te-->
 
-## Projeto do módulo 2 do bootcamp java da Alura 2021
+## Projeto do módulo 3 do bootcamp java da Alura 2021
 
 Trata-se de uma aplicação web em Java para gestão de uma livraria online. A primeira parte do projeto (módulo 1) pode
-ser consultada neste [repositório](https://github.com/raul-lima/bootcamp-java-projeto01). A aplicação permite o cadastro
+ser consultada neste [repositório](https://github.com/raul-lima/bootcamp-java-projeto01) e a segunda parte (módulo 2), neste [repositório](https://github.com/raul-lima/bootcamp-java-projeto02). A aplicação permite o cadastro
 e a listagem de autores e livros no modelo de API, de modo que as informações são consumidas e devolvidas no formato
 JSON.
 <br>
@@ -41,6 +43,13 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 * Título deve ser obrigatório e ter no mínimo 10 caracteres;
 * Data de lançamento deve ser uma data menor ou igual a data atual;
 * O número de páginas deve ser maior ou igual a 100.
+  
+## Novas funcionalidades
+  
+  * A camada de persistência foi implementada em um banco de dados local MySQL com Spring Data JPA;
+  * Controle de evolução do schema do banco de dados da API utilizando o Flyway como ferramenta de migration;
+  * As funcionalidades de listagem de autores e de livros agora possuem o recurso de paginação;
+  * A aplicação agora permite a devolução de um relatório em formato JSON que exibe, com base no banco de dados local, uma lista com os autores, a quantidade de livros de cada autor e o percentual de cada autor na composição do acervo bibliográfico.
 
 ## Demonstração do funcionamento
 
@@ -68,18 +77,27 @@ criação de classes DTO.
 
 Novamente cadastra-se todos os atributos no sistema; mas, na hora de listar, o atributo miniCurriculo da classe Autor
 fica oculto para seguir o padrão usado no projeto do [módulo 1](https://github.com/raul-lima/bootcamp-java-projeto01).
+  
+ ---
+  
+### Relatório que devolve a quantidade de livros por autor e a porcentagem de cada autor na composição do acervo bibliográfico
+  
+  ![](img/relatorios.jpg)
 
 ## Tecnologias
 
 Para a construção da aplicação java web foram utilizados:
 
-* Java
 * API Rest
-* Spring Boot
-* Lombok
-* ModelMapper
 * Bean Validation
 * DTO pattern
+* Flyway
+* Java
+* Lombok
+* ModelMapper
+* MySQL
+* Spring Boot
+* Spring Data JPA
 
 Para testar as funcionalidades da API pode ser utilizada a ferramenta
 gratuita [Postman](https://www.postman.com/downloads/), conforme demonstrado na seção anterior.
