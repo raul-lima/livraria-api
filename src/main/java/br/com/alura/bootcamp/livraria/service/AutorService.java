@@ -33,6 +33,8 @@ public class AutorService {
 
         Autor autor = modelMapper.map(dto, Autor.class);
 
+        autor.setId(null);
+
         autorRepository.save(autor);
 
         return modelMapper.map(autor, AutorDto.class);

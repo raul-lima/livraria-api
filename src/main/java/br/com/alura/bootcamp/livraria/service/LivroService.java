@@ -2,7 +2,9 @@ package br.com.alura.bootcamp.livraria.service;
 
 import br.com.alura.bootcamp.livraria.dto.LivroDto;
 import br.com.alura.bootcamp.livraria.dto.LivroFormDto;
+import br.com.alura.bootcamp.livraria.model.Autor;
 import br.com.alura.bootcamp.livraria.model.Livro;
+import br.com.alura.bootcamp.livraria.repository.AutorRepository;
 import br.com.alura.bootcamp.livraria.repository.LivroRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,10 @@ public class LivroService {
 
 
     @Autowired
-    LivroRepository livroRepository;
+    private LivroRepository livroRepository;
+
+    @Autowired
+    private AutorRepository autorRepository;
 
     private ModelMapper modelMapper = new ModelMapper();
 
@@ -34,8 +39,10 @@ public class LivroService {
     public LivroDto cadastrar(LivroFormDto dto) {
 
         Livro livro = modelMapper.map(dto, Livro.class);
+        Autor autor = autorRepository.getById(dto.getAutorId());
 
         livro.setId(null);
+        livro.setAutor(autor);
 
         livroRepository.save(livro);
 
