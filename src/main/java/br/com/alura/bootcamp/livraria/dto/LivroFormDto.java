@@ -17,11 +17,11 @@ import java.time.LocalDate;
 public class LivroFormDto {
 
     @NotBlank
-    @Size(min = 10)
+    @Size(min = 10, max = 80)
     private String titulo;
     @PastOrPresent
     private LocalDate dataLancamento;
-    @Min(100)
+    @Min(value = 100, message = "{livro.paginas.invalido}")
     private Integer paginas;
 
     @JsonAlias("autor_id")

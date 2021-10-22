@@ -29,7 +29,7 @@ public class LivroController {
     }
 
     @PostMapping
-    public ResponseEntity cadastrar(@RequestBody @Valid LivroFormDto dto, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<LivroDto> cadastrar(@RequestBody @Valid LivroFormDto dto, UriComponentsBuilder uriBuilder) {
 
         LivroDto livroDto = service.cadastrar(dto);
 
