@@ -2,12 +2,14 @@ package br.com.alura.bootcamp.livraria.infra;
 
 import br.com.alura.bootcamp.livraria.dto.Erro400Dto;
 import br.com.alura.bootcamp.livraria.dto.Erro500Dto;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -35,5 +37,13 @@ public class TratamentoDeErros {
                 ex.getMessage(),
                 req.getRequestURI());
     }
+
+    @ExceptionHandler({EntityNotFoundException.class, EmptyResultDataAccessException.class})
+    @ResponseStatus(code = HttpStatus.NOT_FOUND)
+    public void tratarErro404(){
+
+    }
+
+
 
 }

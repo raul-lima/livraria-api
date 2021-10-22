@@ -14,6 +14,8 @@ public class RelatorioService {
     private LivroRepository repository;
 
 
+    // Deve retornar uma lista de autores, a quantidade de livros de cada autor que constam na biblioteca e a porcentagem
+    // que cada autor ocupa na composição do acervo
     public List<LivrosPorAutorDto> relatorioLivrosPorAutor() {
 
         return repository.relatorioLivrosPorAutor();

@@ -12,8 +12,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
+/**
+ * The type Livro service.
+ */
 @Service
 public class LivroService {
 
@@ -27,6 +31,12 @@ public class LivroService {
     private ModelMapper modelMapper = new ModelMapper();
 
 
+    /**
+     * Listar page.
+     *
+     * @param paginacao the paginacao
+     * @return the page
+     */
     public Page<LivroDto> listar(Pageable paginacao) {
 
         Page<Livro> livros = livroRepository.findAll(paginacao);
@@ -35,18 +45,28 @@ public class LivroService {
                 .map(l -> modelMapper.map(l, LivroDto.class));
     }
 
+    /**
+     * Cadastrar livro dto.
+     *
+     * @param dto the dto
+     * @return the livro dto
+     */
     @Transactional
     public LivroDto cadastrar(LivroFormDto dto) {
 
-        Livro livro = modelMapper.map(dto, Livro.class);
-        Autor autor = autorRepository.getById(dto.getAutorId());
+        try {
+            Livro livro = modelMapper.map(dto, Livro.class);
+            Autor autor = autorRepository.getById(dto.getAutorId());
+            livro.setId(null);
+            livro.setAutor(autor);
 
-        livro.setId(null);
-        livro.setAutor(autor);
+            livroRepository.save(livro);
 
-        livroRepository.save(livro);
+            return modelMapper.map(livro, LivroDto.class);
+        } catch (EntityNotFoundException e) {
 
-        return modelMapper.map(livro, LivroDto.class);
+            throw new IllegalArgumentException("usuario inexistente!");
+        }
 
     }
 
