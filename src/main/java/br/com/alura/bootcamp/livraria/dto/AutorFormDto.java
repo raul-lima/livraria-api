@@ -3,6 +3,7 @@ package br.com.alura.bootcamp.livraria.dto;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -19,8 +20,10 @@ public class AutorFormDto {
     private String nome;
     @NotBlank
     private String email;
-    @NotBlank
+    // Em data não pode usar @NotBlank ou @NotEmpty, tem que usar @NotNull (se não dá erro: No validator could be found for constraint 'javax.validation.constraints.NotEmpty' validating type 'java.util.Date')
+    @NotNull
     private LocalDate dataNascimento;
+    @NotBlank
     private String miniCurriculo;
 
 }

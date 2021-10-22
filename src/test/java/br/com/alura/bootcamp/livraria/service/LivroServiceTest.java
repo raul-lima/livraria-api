@@ -10,12 +10,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 class LivroServiceTest {
@@ -32,12 +32,7 @@ class LivroServiceTest {
     @Test
     void deveriaCadastrarUmLivro() {
 
-        LivroFormDto formDto = new LivroFormDto(
-                "titulolivro",
-                LocalDate.now(),
-                150,
-                1l
-        );
+        LivroFormDto formDto = criarLivroFormDto();
 
 
         LivroDto dto = service.cadastrar(formDto);
@@ -50,16 +45,11 @@ class LivroServiceTest {
 
     }
 
+
     @Test
     void naoDeveriaCadastrarUmLivroComAutorInexistente() {
 
-        LivroFormDto formDto = new LivroFormDto(
-                "titulolivro",
-                LocalDate.now(),
-                150,
-                1l
-        );
-
+        LivroFormDto formDto = criarLivroFormDto();
 
         Mockito.when(autorRepository.getById(formDto.getAutorId()))
                 .thenThrow(EntityNotFoundException.class);
@@ -68,6 +58,14 @@ class LivroServiceTest {
 
     }
 
+    private LivroFormDto criarLivroFormDto() {
+        return new LivroFormDto(
+                "titulolivro",
+                LocalDate.now(),
+                150,
+                1l
+        );
+    }
 
 
 }
