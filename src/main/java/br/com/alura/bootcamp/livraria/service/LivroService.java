@@ -1,5 +1,6 @@
 package br.com.alura.bootcamp.livraria.service;
 
+import br.com.alura.bootcamp.livraria.dto.AtualizacaoLivroFormDto;
 import br.com.alura.bootcamp.livraria.dto.LivroDto;
 import br.com.alura.bootcamp.livraria.dto.LivroFormDto;
 import br.com.alura.bootcamp.livraria.model.Autor;
@@ -70,4 +71,24 @@ public class LivroService {
 
     }
 
+    @Transactional
+    public LivroDto atualizar(AtualizacaoLivroFormDto dto) {
+        Livro livro = livroRepository.getById(dto.getId());
+
+        livro.atualizarInformacoes(dto.getTitulo(), dto.getDataLancamento(), dto.getPaginas());
+        return modelMapper.map(livro, LivroDto.class);
+    }
+
+    @Transactional
+    public void remover(Long id) {
+        livroRepository.deleteById(id);
+
+    }
+
+    public LivroDto detalhar(Long id) {
+        Livro livro = livroRepository
+                .findById(id)
+                .orElseThrow(() -> new EntityNotFoundException());
+        return modelMapper.map(livro, LivroDto.class);
+    }
 }

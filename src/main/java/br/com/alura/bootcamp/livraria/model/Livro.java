@@ -30,4 +30,11 @@ public class Livro {
         this.paginas = paginas;
         this.autor = autor;
     }
+
+    public void atualizarInformacoes(String titulo, LocalDate dataLancamento, Integer paginas) {
+
+        this.titulo = titulo;
+        this.dataLancamento = dataLancamento;
+        this.paginas = paginas;
+    }
 }

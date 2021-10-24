@@ -1,5 +1,6 @@
 package br.com.alura.bootcamp.livraria.controller;
 
+import br.com.alura.bootcamp.livraria.dto.AtualizacaoLivroFormDto;
 import br.com.alura.bootcamp.livraria.dto.LivroDto;
 import br.com.alura.bootcamp.livraria.dto.LivroFormDto;
 import br.com.alura.bootcamp.livraria.service.LivroService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.net.URI;
 
 // RestController Serve para especificar que é um controller do tipo Rest, que não devolve páginas JSP e sim o formato padrão JSON
@@ -41,6 +43,33 @@ public class LivroController {
         URI uri = uriBuilder.path("/livros/{id}").buildAndExpand(livroDto.getId()).toUri();
 
         return ResponseEntity.created(uri).body(livroDto);
+
+    }
+
+    @PutMapping
+    public ResponseEntity<LivroDto> atualizar(@RequestBody @Valid AtualizacaoLivroFormDto dto) {
+
+        LivroDto atualizado = service.atualizar(dto);
+
+        return ResponseEntity.ok(atualizado);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<LivroDto> remover(@PathVariable @NotNull Long id) {
+
+        service.remover(id);
+
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LivroDto> detalhar(@PathVariable @NotNull Long id) {
+
+        LivroDto dto = service.detalhar(id);
+
+        return ResponseEntity.ok(dto);
 
     }
 
