@@ -1,5 +1,6 @@
 package br.com.alura.bootcamp.livraria.infra.security;
 
+import br.com.alura.bootcamp.livraria.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
@@ -21,6 +23,12 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private TokenService tokenService;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @Override
     @Bean
@@ -45,7 +53,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/auth").permitAll() // Autoriza acessar o /auth sem precisar autenticar antes. Ou seja, não precisa estar logado para tentar logar
                 .anyRequest().authenticated() // qualquer requisição precisa estar logado
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //indica pro string que o gerenciamento de sessão é stateless. Cria a necessidade de fazer um controller de autenticação, porque não está mais usando o do spring
-                .and().csrf().disable(); //desabilita a proteção automática do spring para requisições do tipo post
+                .and().csrf().disable() //desabilita a proteção automática do spring para requisições do tipo post
+                .addFilterBefore(
+                        new VerificacaoTokenFilter(tokenService, usuarioRepository),
+                        UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override

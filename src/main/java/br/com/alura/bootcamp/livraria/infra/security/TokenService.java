@@ -1,6 +1,7 @@
 package br.com.alura.bootcamp.livraria.infra.security;
 
 import br.com.alura.bootcamp.livraria.model.Usuario;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,8 +21,33 @@ public class TokenService {
 
         return Jwts
                 .builder()
-                .setId(logado.getId().toString())
+                .setSubject(logado.getId().toString())
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
+    }
+
+    public boolean isValid(String token){
+
+        try{
+            Jwts
+                    .parser()
+                    .setSigningKey(secret)
+                    .parseClaimsJws(token);
+            return true;
+        } catch (Exception e){
+            return  false;
+        }
+
+    }
+
+    public Long extrairIdUsuario(String token) {
+
+            Claims claims = Jwts
+                    .parser()
+                    .setSigningKey(secret)
+                    .parseClaimsJws(token)
+                    .getBody();
+
+        return Long.parseLong(claims.getSubject());
     }
 }
