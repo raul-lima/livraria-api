@@ -48,8 +48,8 @@ public class VerificacaoTokenFilter extends OncePerRequestFilter {
         if (tokenValido) {
 
             Long idUsuario = tokenService.extrairIdUsuario(token);
-            Usuario logado = usuarioRepository.getById(idUsuario);
-            Authentication authentication = new UsernamePasswordAuthenticationToken(logado, null, null);
+            Usuario logado = usuarioRepository.carregarPorIdComPerfis(idUsuario).get();
+            Authentication authentication = new UsernamePasswordAuthenticationToken(logado, null, logado.getAuthorities());
             // Fala pro Spring que o usuário tá autenticado
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }

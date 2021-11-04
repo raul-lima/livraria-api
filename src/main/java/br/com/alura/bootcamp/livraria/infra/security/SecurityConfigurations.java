@@ -51,6 +51,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll() // Autoriza acessar o /auth sem precisar autenticar antes. Ou seja, não precisa estar logado para tentar logar
+                .antMatchers("/usuarios/**").hasRole("ADMIN")
                 .anyRequest().authenticated() // qualquer requisição precisa estar logado
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //indica pro string que o gerenciamento de sessão é stateless. Cria a necessidade de fazer um controller de autenticação, porque não está mais usando o do spring
                 .and().csrf().disable() //desabilita a proteção automática do spring para requisições do tipo post

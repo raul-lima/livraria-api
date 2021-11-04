@@ -44,6 +44,6 @@ public class AutenticacaoService implements UserDetailsService {
 
         return tokenService.gerarToken(authentication);
         // autenticar, gerar token e devolver token
-        // token: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIn0.MNi2k_yDT2GhVorcHRe59wA-aTSXUjtHtdnFrTpVGW0
+        // token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIn0.tLYTasp_nXTlegbf7ki4TyZ1S-HnqmWZdA1upCF3U7s
     }
 }
