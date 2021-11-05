@@ -1,5 +1,6 @@
 package br.com.alura.bootcamp.livraria.dto;
 
+import br.com.alura.bootcamp.livraria.model.Autor;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -15,7 +16,6 @@ public class LivroDto {
     private String titulo;
     private LocalDate dataLancamento;
     private Integer paginas;
-    // Aqui usa o AutorDto de maneira proposital para esconder o atributo miniCurriculo, simulando o formulário do projeto 01
-    private AutorDto autor;
+    private Autor autor;
 
 }
