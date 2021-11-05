@@ -2,33 +2,34 @@
   <img src="img/logoBootcampJava.jpg">
 
 
-![GitHub top language](https://img.shields.io/github/languages/top/raul-lima/bootcamp-java-projeto04)<space><space>
-![Lines of Code](https://img.shields.io/tokei/lines/github/raul-lima/bootcamp-java-projeto04)<space><space>
-![GitHub repo size](https://img.shields.io/github/repo-size/raul-lima/bootcamp-java-projeto04)<space><space>
+![GitHub top language](https://img.shields.io/github/languages/top/raul-lima/bootcamp-java-projeto05)<space><space>
+![Lines of Code](https://img.shields.io/tokei/lines/github/raul-lima/bootcamp-java-projeto05)<space><space>
+![GitHub repo size](https://img.shields.io/github/repo-size/raul-lima/bootcamp-java-projeto05)<space><space>
 ![Feito por](https://img.shields.io/badge/feito%20por-Raul%20Lima-blueviolet)
 
  </div align="center">
 
 
-<p align="center"> Bootcamp Java da Alura - Projeto 04 - Biblioteca API</p>
+<p align="center"> Bootcamp Java da Alura - Projeto 05 - Livraria API</p>
 
 
 Tabela de Conteúdos
 =================
   <!--ts-->
 
-* [Projeto do módulo 4 do bootcamp java da Alura 2021](#projeto-do-módulo-4-do-bootcamp-java-da-alura-2021)
+* [Projeto do módulo 5 do bootcamp java da Alura 2021](#projeto-do-módulo-5-do-bootcamp-java-da-alura-2021)
 * [Novas funcionalidades](#novas-funcionalidades)
 * [Tecnologias](#tecnologias)
 * [Contato](#contato)
   <!--te-->
 
-## Projeto do módulo 4 do bootcamp java da Alura 2021
+## Projeto do módulo 5 do bootcamp java da Alura 2021
 
 Trata-se de uma aplicação web em Java para gestão de uma livraria online desenvolvida em módulos:
  * [Módulo 01](https://github.com/raul-lima/bootcamp-java-projeto01)
  * [Módulo 02](https://github.com/raul-lima/bootcamp-java-projeto02) 
  * [Módulo 03](https://github.com/raul-lima/bootcamp-java-projeto03)
+ * [Módulo 04](https://github.com/raul-lima/bootcamp-java-projeto04)
   
   A aplicação permite o cadastro, listagem, atualização, remoção e detalhamento de autores e livros no modelo de API, de modo que as informações são consumidas e devolvidas no formato
 JSON.
@@ -42,15 +43,11 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
   
 ## Novas funcionalidades
   
-  * A camada de persistência foi implementada em um banco de dados local MySQL com Spring Data JPA;
-  * Controle de evolução do schema do banco de dados da API utilizando o Flyway como ferramenta de migration;
-  * As funcionalidades de listagem de autores e de livros agora possuem o recurso de paginação;
-  * A aplicação agora permite a devolução de um relatório em formato JSON que exibe, com base no banco de dados local, uma lista com os autores, a quantidade de livros de cada autor e o percentual de cada autor na composição do acervo bibliográfico;
-  * A aplicação agora conta com um CRUD completo, além de uma funcionalidade para pesquisar por um livro ou autor específico por ID;
-  * Foi implementada uma classe com métodos para tratamento dos erros 400, 404 e 500 que ocorrem na API;
-  * As classes controller, repository e service da API agora contam com testes automatizados usando JUnit, AssertJ e Mockito;
-  * A documentação da API é gerada automaticamente com a ferramenta Swagger.
-
+* Segurança implementada com módulos do Spring Security e do JJWT;
+* Autenticação e autorização da API de maneira stateless
+* Criação de usuários e perfis para controle de acesso
+* Criação de um filter para verificar os tokens de acesso à API
+* Atualização dos testes automatizados
 
 ## Tecnologias
 
@@ -62,6 +59,7 @@ Para a construção da aplicação java web foram utilizados:
 * ModelMapper
 * MySQL
 * Spring Boot
+* Spring Security
 * Swagger
 
 Para testar as funcionalidades da API pode ser utilizada a ferramenta
