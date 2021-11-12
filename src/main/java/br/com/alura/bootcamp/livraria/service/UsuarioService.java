@@ -2,6 +2,8 @@ package br.com.alura.bootcamp.livraria.service;
 
 import br.com.alura.bootcamp.livraria.dto.UsuarioDto;
 import br.com.alura.bootcamp.livraria.dto.UsuarioFormDto;
+import br.com.alura.bootcamp.livraria.infra.EnviadorDeEmail;
+import br.com.alura.bootcamp.livraria.infra.EnviadorDeEmailReal;
 import br.com.alura.bootcamp.livraria.model.Perfil;
 import br.com.alura.bootcamp.livraria.model.Usuario;
 import br.com.alura.bootcamp.livraria.repository.PerfilRepository;
@@ -31,6 +33,9 @@ public class UsuarioService {
     @Autowired
     private PerfilRepository perfilRepository;
 
+    @Autowired
+    private EnviadorDeEmail enviadorDeEmail;
+
     public Page<UsuarioDto> listar(Pageable paginacao) {
 
         Page<Usuario> usuarios = usuarioRepository.findAll(paginacao);
@@ -38,7 +43,6 @@ public class UsuarioService {
                 .map(t -> modelMapper
                         .map(t, UsuarioDto.class));
     }
-
 
     @Transactional
     public UsuarioDto cadastrar(UsuarioFormDto dto) {
@@ -57,6 +61,13 @@ public class UsuarioService {
         System.out.println(usuario.getSenha());
 
         usuarioRepository.save(usuario);
+
+        String destinatario = usuario.getEmail();
+        String assunto = "Livraria - Boas vindas";
+        String mensagem = String.format("Olá %s!\n\n Aqui estão seus dados de acesso ao sistema Livraria:" +
+                        "\nLogin:%s\nSenha:%s",
+                usuario.getNome(), usuario.getLogin(), senha);
+        enviadorDeEmail.enviarEmail(destinatario, assunto, mensagem);
 
         return modelMapper.map(usuario, UsuarioDto.class);
     }
