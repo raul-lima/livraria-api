@@ -10,26 +10,27 @@
  </div align="center">
 
 
-<p align="center"> Bootcamp Java da Alura - Projeto 05 - Livraria API</p>
+<p align="center"> Bootcamp Java da Alura - Projeto final - Livraria API</p>
 
 
 Tabela de Conteúdos
 =================
   <!--ts-->
 
-* [Projeto do módulo 5 do bootcamp java da Alura 2021](#projeto-do-módulo-5-do-bootcamp-java-da-alura-2021)
-* [Novas funcionalidades](#novas-funcionalidades)
+* [Projeto final do bootcamp java da Alura 2021](#projeto-final-do-bootcamp-java-da-alura-2021)
+* [Funcionalidades](#funcionalidades)
 * [Tecnologias](#tecnologias)
 * [Contato](#contato)
   <!--te-->
 
-## Projeto do módulo 5 do bootcamp java da Alura 2021
+## Projeto final do bootcamp java da Alura 2021
 
 Trata-se de uma aplicação web em Java para gestão de uma livraria online desenvolvida em módulos:
  * [Módulo 01](https://github.com/raul-lima/bootcamp-java-projeto01)
  * [Módulo 02](https://github.com/raul-lima/bootcamp-java-projeto02) 
  * [Módulo 03](https://github.com/raul-lima/bootcamp-java-projeto03)
  * [Módulo 04](https://github.com/raul-lima/bootcamp-java-projeto04)
+ * [Módulo 05](https://github.com/raul-lima/bootcamp-java-projeto05)
   
   A aplicação permite o cadastro, listagem, atualização, remoção e detalhamento de autores e livros no modelo de API, de modo que as informações são consumidas e devolvidas no formato
 JSON.
@@ -41,13 +42,20 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 * Data de lançamento deve ser uma data menor ou igual a data atual;
 * O número de páginas deve ser maior ou igual a 100.
   
-## Novas funcionalidades
-  
+## Funcionalidades
+
+* Camada de persistência com Spring Data JPA
+* Controle de evolução do schema do banco de dados da API utilizando o Flyway como ferramenta de migration;
+* Paginação na listagem de autores e livros;
+* Relatório em formato JSON que exibe, com base no banco de dados local, uma lista com os autores, a quantidade de livros de cada autor e o percentual de cada autor na composição do acervo bibliográfico;
+* CRUD completo, além de uma funcionalidade para pesquisar por um livro ou autor específico por ID;
+* Tratamento dos erros 400, 404 e 500;
+* Testes automatizados com JUnit, AssertJ e Mockito;
+* A documentação da API é gerada automaticamente com a ferramenta Swagger.
 * Segurança implementada com módulos do Spring Security e do JJWT;
-* Autenticação e autorização da API de maneira stateless
-* Criação de usuários e perfis para controle de acesso
-* Criação de um filter para verificar os tokens de acesso à API
-* Atualização dos testes automatizados
+* Autenticação e autorização da API de maneira stateless;
+* Criação de usuários e perfis para controle de acesso;
+* Filter para verificar os tokens de acesso à API;
 
 ## Tecnologias
 
@@ -63,7 +71,7 @@ Para a construção da aplicação java web foram utilizados:
 * Swagger
 
 Para testar as funcionalidades da API pode ser utilizada a ferramenta
-gratuita [Postman](https://www.postman.com/downloads/). Também é possível realizar os testes por meio da documentação gerada pelo swagger, acessível por meio do seguinte caminho: http://localhost:8080/swagger-ui.html
+gratuita [Postman](https://www.postman.com/downloads/). Também é possível realizar os testes por meio da documentação gerada pelo swagger, acessível por meio do seguinte caminho: http://localhost:8080/swagger-ui.html (em ambiente de desenvolvimento).
 
 ## Contato
 
