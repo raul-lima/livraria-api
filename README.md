@@ -56,11 +56,14 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 * Autenticação e autorização da API de maneira stateless;
 * Criação de usuários e perfis para controle de acesso;
 * Filter para verificar os tokens de acesso à API;
+* Deploy automatizado no Heroku;
+* Envio de e-mail após o cadastro de um novo usuário, informando o login e a senha gerada automaticamente;
 
 ## Tecnologias
 
 Para a construção da aplicação java web foram utilizados:
 
+* Docker
 * Flyway
 * Java
 * Lombok
