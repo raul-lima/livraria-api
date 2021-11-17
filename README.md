@@ -34,13 +34,6 @@ Trata-se de uma aplicação web em Java para gestão de uma livraria online dese
   
   A aplicação permite o cadastro, listagem, atualização, remoção e detalhamento de autores e livros no modelo de API, de modo que as informações são consumidas e devolvidas no formato
 JSON.
-<br>
-<br>
-A funcionalidade de cadastro de livros realiza as seguintes validações:
-
-* Título deve ser obrigatório e ter no mínimo 10 caracteres;
-* Data de lançamento deve ser uma data menor ou igual a data atual;
-* O número de páginas deve ser maior ou igual a 100.
   
 ## Funcionalidades
 
@@ -49,6 +42,7 @@ A funcionalidade de cadastro de livros realiza as seguintes validações:
 * Paginação na listagem de autores e livros;
 * Relatório em formato JSON que exibe, com base no banco de dados local, uma lista com os autores, a quantidade de livros de cada autor e o percentual de cada autor na composição do acervo bibliográfico;
 * CRUD completo, além de uma funcionalidade para pesquisar por um livro ou autor específico por ID;
+* Validações cadastrais;
 * Tratamento dos erros 400, 404 e 500;
 * Testes automatizados com JUnit, AssertJ e Mockito;
 * A documentação da API é gerada automaticamente com a ferramenta Swagger.
