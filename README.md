@@ -60,8 +60,6 @@ Para a construção da aplicação java web foram utilizados:
 * Docker
 * Flyway
 * Java
-* Lombok
-* ModelMapper
 * MySQL
 * Spring Boot
 * Spring Security
